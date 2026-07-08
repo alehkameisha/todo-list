@@ -3,7 +3,9 @@ const Filed = (props) => {
         className = '',
         id,
         label,
+        value,
         type = 'text',
+        onInput
     } = props
 
     return (
@@ -19,7 +21,9 @@ const Filed = (props) => {
             id={id}
             placeholder=" "
             autoComplete="off"
+            value={value}
             type={type}
+            onInput={onInput}
           />
         </div>
     )
