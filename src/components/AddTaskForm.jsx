@@ -1,13 +1,17 @@
-import Button from "./Button"
-import Filed from "./Field"
+import Button from './Button';
+import Filed from './Field';
 
 const AddTaskFrom = () => {
     return (
         <form className="todo__form">
-            <Filed />
-            <Button />
+            <Filed
+                className="todo__filed"
+                label="New task title"
+                id="new-task"
+            />
+            <Button type="submit">Add</Button>
         </form>
     );
 };
 
-export default AddTaskFrom
+export default AddTaskFrom;
