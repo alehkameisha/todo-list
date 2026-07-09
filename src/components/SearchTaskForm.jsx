@@ -1,7 +1,10 @@
 import Filed from './Field';
 
 const SearchTaskForm = (props) => {
-    const { onSearchInput } = props;
+    const { 
+        filterQuery,
+        setFilterQuery
+     } = props;
 
     return (
         <form
@@ -13,7 +16,8 @@ const SearchTaskForm = (props) => {
                 label="Search task"
                 id="search-task"
                 type="search"
-                onInput={(event) => onSearchInput(event.target.value)}
+                value={filterQuery}
+                onInput={(event) => setFilterQuery(event.target.value)}
             />
         </form>
     );
