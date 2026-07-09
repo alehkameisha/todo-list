@@ -1,6 +1,8 @@
 import TodoItem from './TodoItem';
+import { memo } from 'react';
 
 const TodoList = (props) => {
+    console.log('TodoList');
     const {
         tasks = [],
         filteredTasks,
@@ -11,14 +13,15 @@ const TodoList = (props) => {
     } = props;
 
     const hasTasks = tasks.length > 0;
-    const isEmptyFilteredTasks = filteredTasks?.length === 0
+    const isEmptyFilteredTasks = filteredTasks?.length === 0;
 
-    
     if (!hasTasks) {
-        return <div className="todo__empty-message">There are no tasks yet</div>;
+        return (
+            <div className="todo__empty-message">There are no tasks yet</div>
+        );
     }
 
-    if(hasTasks && isEmptyFilteredTasks) {
+    if (hasTasks && isEmptyFilteredTasks) {
         return <div className="todo__empty-message">Tasks no found</div>;
     }
 
@@ -29,7 +32,11 @@ const TodoList = (props) => {
                     className="todo__item"
                     key={task.id}
                     {...task}
-                    ref={task.id === firstIncompleteTaskId ? firstIncompleteTaskRef : null}
+                    ref={
+                        task.id === firstIncompleteTaskId
+                            ? firstIncompleteTaskRef
+                            : null
+                    }
                     onDeleteTaskButtonClick={onDeleteTaskButtonClick}
                     onTaskCompleteChange={onTaskCompleteChange}
                 />
@@ -38,4 +45,4 @@ const TodoList = (props) => {
     );
 };
 
-export default TodoList;
+export default memo(TodoList);
