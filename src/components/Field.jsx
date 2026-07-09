@@ -5,7 +5,8 @@ const Filed = (props) => {
         label,
         value,
         type = 'text',
-        onInput
+        onInput,
+        ref
     } = props
 
     return (
@@ -24,6 +25,7 @@ const Filed = (props) => {
             value={value}
             type={type}
             onInput={onInput}
+            ref={ref}
           />
         </div>
     )
